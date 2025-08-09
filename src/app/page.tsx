@@ -48,40 +48,7 @@ export default function Home() {
             },
           ]}
         />
-        <FeatureList
-          features={[
-            {
-              title: "Workflow Automation",
-              description:
-                "Eliminate repetitive tasks across operations, sales, marketing, and support with resilient automation pipelines.",
-            },
-            {
-              title: "AI Enablement",
-              description:
-                "Assess, prototype, and productionize AI use cases that deliver measurable ROI—not hype.",
-            },
-            {
-              title: "Funnel Optimization",
-              description:
-                "Improve conversion across acquisition, onboarding, and retention with data-informed experimentation.",
-            },
-            {
-              title: "Data Activation",
-              description:
-                "Turn fragmented data into usable intelligence for decisioning, personalization, and predictive models.",
-            },
-            {
-              title: "Acquisition & Demand",
-              description:
-                "Modern organic + paid + partner strategies aligned to lifetime value and pipeline velocity.",
-            },
-            {
-              title: "Retention & Expansion",
-              description:
-                "Lifecycle programs that reduce churn and unlock expansion through segmentation and triggered messaging.",
-            },
-          ]}
-        />
+  <FeatureList />
         <UseCasesSection
           cases={[
             { title: 'Onboarding Automation', summary: 'Reduce new customer activation time with coordinated multi-channel sequencing.' },

@@ -5,30 +5,37 @@ interface CTASectionProps {
   heading?: string;
   subheading?: string;
   primaryCta?: { href: string; label: string };
+  secondaryCta?: { href: string; label: string };
 }
 
 export function CTASection({
-  heading = "Let’s Build Your Intelligent Operations Roadmap",
-  subheading = "Get a tailored action plan for automation, AI integration, and measurable ROI—without the fluff.",
-  primaryCta = { href: "/contact", label: "Request Strategy Call" },
+  heading = "Ready To Compound?",
+  subheading = "Deploy an adaptive growth stack that self-optimizes across acquisition, activation, and retention.",
+  primaryCta = { href: "/contact", label: "Design My Growth Stack" },
+  secondaryCta = { href: "/services/ai-enablement", label: "See AI Enablement" },
 }: CTASectionProps) {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/30 via-indigo-400/20 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-transparent to-transparent blur-3xl pointer-events-none" />
       <SectionWrapper className="relative text-center">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight bg-gradient-to-br from-white to-indigo-200 bg-clip-text text-transparent">
-          {heading}
-        </h2>
-        <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-          {subheading}
-        </p>
-        <div className="mt-10">
+        <div className="absolute -inset-x-20 -top-24 -bottom-24 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.09),transparent_70%)]" />
+        <h2 className="headline-md glow-text">{heading}</h2>
+        <p className="mt-5 text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">{subheading}</p>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href={primaryCta.href}
-            className="inline-flex items-center justify-center rounded-md bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-3 text-base font-medium transition-colors shadow-sm"
+            className="btn-primary inline-flex items-center justify-center"
           >
             {primaryCta.label}
           </Link>
+          {secondaryCta && (
+            <Link
+              href={secondaryCta.href}
+              className="btn-outline inline-flex items-center justify-center"
+            >
+              {secondaryCta.label}
+            </Link>
+          )}
         </div>
       </SectionWrapper>
     </div>

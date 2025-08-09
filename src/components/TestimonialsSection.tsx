@@ -28,25 +28,25 @@ export function TestimonialsSection({
 }: TestimonialsSectionProps) {
   return (
     <SectionWrapper id="testimonials" ariaLabel={heading}>
-      <div className="mx-auto text-center mb-14 max-w-3xl">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-          {heading}
-        </h2>
+      <div className="mx-auto text-center mb-14 max-w-3xl relative">
+        <div className="pointer-events-none absolute -inset-x-20 -top-14 h-52 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.08),transparent_70%)]" />
+        <h2 className="headline-md glow-text">{heading}</h2>
         {testimonials.length === 0 && (
           <p className="mt-4 text-sm text-white/50 italic">(Add testimonials)</p>
         )}
       </div>
       {testimonials.length > 0 && (
-        <ul className="grid gap-10 md:grid-cols-2">
+    <ul className="grid gap-8 md:grid-cols-2 items-stretch">
           {testimonials.map((t, i) => (
             <li
               key={i}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+      className="group glass card-glow rounded-xl p-6 relative overflow-hidden flex flex-col"
             >
-              <blockquote className="text-sm text-white/80 leading-relaxed">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_70%)]" />
+      <blockquote className="relative text-sm text-white/80 leading-relaxed flex-grow">
                 “{t.quote}”
               </blockquote>
-              <p className="mt-4 text-xs font-medium text-white/60">
+              <p className="relative mt-4 text-xs font-medium text-white/60">
                 — {t.author}{t.role ? `, ${t.role}` : ""}
               </p>
             </li>
