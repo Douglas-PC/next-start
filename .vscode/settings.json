@@ -1,0 +1,4 @@
+{
+  // Tailwind CSS v4 preview uses a custom @theme at-rule; suppress unknown warning in editor.
+  "css.lint.unknownAtRules": "ignore"
+}
