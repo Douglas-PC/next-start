@@ -7,3 +7,4 @@ export * from "./SocialProofSection";
 export * from "./ProblemSolutionSection";
 export * from "./UseCasesSection";
 export * from "./TestimonialsSection";
+export * from "./Breadcrumbs";
