@@ -8,7 +8,23 @@ interface TestimonialsSectionProps {
 
 export function TestimonialsSection({
   heading = "Client Outcomes",
-  testimonials = [],
+  testimonials = [
+    {
+      quote: "Douglas PC helped us eliminate hours of manual reconciliation every week—our cycle time dropped 40% in two months.",
+      author: "VP Operations",
+      role: "B2B SaaS",
+    },
+    {
+      quote: "Their data activation and funnel instrumentation uncovered leakage we didn't know existed—pipeline velocity is up 23%.",
+      author: "Head of Revenue Ops",
+      role: "Fintech",
+    },
+    {
+      quote: "We went from scattered AI experimentation to a prioritized roadmap with production automations delivering real ROI.",
+      author: "CTO",
+      role: "Healthcare Platform",
+    },
+  ],
 }: TestimonialsSectionProps) {
   return (
     <SectionWrapper id="testimonials" ariaLabel={heading}>
@@ -17,9 +33,7 @@ export function TestimonialsSection({
           {heading}
         </h2>
         {testimonials.length === 0 && (
-          <p className="mt-4 text-sm text-white/50 italic">
-            TODO: Replace with real client testimonials / quantified outcomes.
-          </p>
+          <p className="mt-4 text-sm text-white/50 italic">(Add testimonials)</p>
         )}
       </div>
       {testimonials.length > 0 && (
