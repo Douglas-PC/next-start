@@ -58,7 +58,7 @@ export default function RootLayout({
               organizationSchema({
                 name: "Douglas PC",
                 url: "https://douglaspc.com",
-                logo: "https://douglaspc.com/logo.png", // TODO: add real logo asset
+                logo: "https://douglaspc.com/logo.svg", // TODO: replace with production logo asset
                 sameAs: [
                   "https://www.linkedin.com/company/douglaspc", // TODO verify
                   "https://twitter.com/douglaspctech",
