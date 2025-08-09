@@ -1,0 +1,38 @@
+name: Deploy (Cloudflare Pages)
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install deps
+        run: npm ci
+        working-directory: next-douglaspc-website
+      - name: Next build
+        run: npm run build
+        working-directory: next-douglaspc-website
+      - name: Adapt for Cloudflare Pages
+        run: npx @cloudflare/next-on-pages -s
+        working-directory: next-douglaspc-website
+      - name: Publish to Cloudflare Pages
+        run: npx wrangler pages deploy .vercel/output/static --project-name=next-douglaspc-website
+        working-directory: next-douglaspc-website
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+## Notes
+# Set CLOUDFLARE_API_TOKEN (Pages Write) and CLOUDFLARE_ACCOUNT_ID in repo secrets.
