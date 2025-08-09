@@ -44,3 +44,44 @@ export function faqPageSchema(entries: FAQEntry[], pageUrl: string) {
     url: pageUrl,
   };
 }
+
+// Individual service / offering schema
+export interface ServiceSchemaOptions {
+  name: string;
+  description: string;
+  url: string;
+  areaServed?: string | string[];
+  providerName?: string;
+  serviceType?: string;
+}
+
+export function serviceSchema(opts: ServiceSchemaOptions) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    areaServed: opts.areaServed,
+    provider: opts.providerName ? {
+      '@type': 'Organization',
+      name: opts.providerName,
+    } : undefined,
+    serviceType: opts.serviceType,
+  };
+}
+
+// Simple breadcrumb list helper
+export interface BreadcrumbItem { name: string; url: string }
+export function breadcrumbList(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
