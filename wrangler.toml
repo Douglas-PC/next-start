@@ -1,0 +1,8 @@
+name = "next-douglaspc-website"
+compatibility_date = "2025-08-09"
+# Set this if you use any specific Next.js edge features requiring flags
+# compatibility_flags = []
+
+[vars]
+# Add any environment variables here, example:
+# API_BASE_URL = "https://api.example.com"
