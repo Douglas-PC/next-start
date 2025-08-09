@@ -92,3 +92,6 @@ jobs:
 ```
 
 Create a Cloudflare API token with Pages Write permissions and store `CLOUDFLARE_API_TOKEN` and your `CLOUDFLARE_ACCOUNT_ID` as repo secrets.
+
+## Futuristic Theme Refactor (August 2025)
+Marketing sections (Hero, Features, Problem/Solution, Use Cases, Testimonials, FAQ, CTA) restyled with a neon glass + glow aesthetic. Utility classes (`glass`, `card-glow`, `glow-text`, `headline-md`, `btn-primary`, `btn-outline`) live in `src/app/globals.css`. Pending: navigation bar, footer, OG image generation, sitemap & robots, service index page, real logo assets.
